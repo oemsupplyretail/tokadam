@@ -1,0 +1,2 @@
+.hero .hero-inner{position:relative}.hero .hero-copy{position:relative;z-index:1}.hero .hero-product{position:relative;inset:auto;width:auto;height:540px;pointer-events:none}.hero .hero-product img{position:absolute;inset:auto;right:34px;bottom:8px;width:auto;height:520px;max-width:none;object-fit:contain;filter:drop-shadow(0 28px 35px #0009)}
+@media(max-width:720px){.hero .hero-product{height:285px;margin-top:38px;opacity:1}.hero .hero-product img{width:auto;height:300px;right:calc(50% - 77px);bottom:-8px}}

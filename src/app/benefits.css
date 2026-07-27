@@ -1,0 +1,2 @@
+.benefit-section .benefits{grid-template-columns:repeat(6,1fr);max-width:1180px}
+@media(max-width:720px){.benefit-section .benefits{grid-template-columns:repeat(2,1fr)}}

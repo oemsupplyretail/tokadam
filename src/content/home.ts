@@ -1,0 +1,75 @@
+import { site } from "@/config/site";
+
+export const homeContent = {
+  cta: { label: "LIHAT PAKEJ →", href: site.links.packagesAnchor },
+  rotatingIcon: {
+    image: "/images/rotate.png",
+    imageAlt: "Ikon berputar",
+    ariaLabel: "Pecutkan putaran ikon",
+    baseSpeed: 32,
+    boostSpeed: 660,
+    maximumSpeed: 920,
+    settleDuration: 1.6,
+  },
+  hero: {
+    eyebrow: "RAHSIA TAHAN",
+    duration: "45",
+    durationUnit: "MINIT",
+    title: "Kini Berada Di Depan Mata Anda",
+    description: "Solusi khas yang diformulasikan oleh Tok Adam untuk suami yang ada masalah pancut awal di ranjang.",
+    image: "/images/hero-bottle.png",
+    imageAlt: "Virilux product",
+  },
+  intro: {
+    kicker: "ANDA MENGALAMI MASALAH",
+    title: "PANCUT AWAL?",
+    description: "Jom gunakan PADOX PRO, formulasi praktikal yang senang digunakan untuk membantu mengurangkan sensitiviti sentuhan kelamin anda.",
+    productName: "PADOX PRO",
+    image: "/images/couple.png",
+    imageAlt: "Pasangan Melayu bahagia",
+  },
+  problems: {
+    kicker: "MASALAH YANG DIHADAPI",
+    title: "Dah cuba macam-macam cara, tapi masih belum jumpa penyelesaian yang terbaik?",
+    lead: "Kini dengan PADOX PRO, anda tidak perlu lagi menghadapi masalah-masalah seperti ini",
+    productName: "PADOX PRO",
+  },
+  worries: {
+    title: "PERASAAN NAK CUBA ITU ADA, TAPI RISAU PRODUK TAK SESUAI DAN TIDAK SELESAIKAN MASALAH?",
+    lead: "Nak pula bila nak membeli produk, selalu mengalami masalah seperti ini",
+    relief: "KINI ANDA TIDAK PERLU RISAU LAGI.. PRODUK PADOX PRO INI DAPAT MEMBANTU ANDA SELESAIKAN MASALAH DIATAS.",
+    productName: "PRODUK PADOX PRO",
+    reassurance: "Anda boleh gunakan dengan selamat & tanpa was-was lagi",
+  },
+  product: {
+    kicker: "JOM KAMI PERKENALKAN",
+    title: "Produk dengan formulasi khusus yang dicipta untuk membantu anda untuk bertahan sehingga",
+    duration: "45 MINIT!",
+    productKicker: "MEMPERKENALKAN PADOX PRO",
+    image: "/images/virilux-product.png",
+    imageAlt: "PADOX PRO",
+    ingredientsTitle: "YANG MENGANDUNGI BAHAN-BAHAN SEMULAJADI YANG DIRUMUS KHAS",
+  },
+  benefits: { title: "KELEBIHAN PENGGUNAAN PADOX PRO INI ADALAH", accent: "PADOX PRO" },
+  tutorial: {
+    kicker: "TUTORIAL VIDEO CARA GUNA PADOX PRO",
+    title: "Ini adalah video tutorial cara penggunaan produk PADOX PRO ini dengan betul dari Tok Adam",
+    frameTitle: "Tutorial penggunaan PADOX PRO",
+  },
+  credentials: {
+    kicker: "CREDENTIAL PADOX PRO",
+    title: "Anda tidak perlu risau untuk menggunakan PADOX PRO ini.",
+    description: "Kami sah berdaftar dengan Kementerian Kesihatan Malaysia.",
+    seals: [
+      { symbol: "✓", label: "BERDAFTAR" },
+      { symbol: "✦", label: "BERKUALITI" },
+    ],
+  },
+  testimonials: { kicker: "TESTIMONI PENGGUNA", title: "Apa yang pelanggan kami katakan", rating: "★★★★★" },
+  packages: { kicker: "PAKEJ YANG KAMI TAWARKAN", title: "Kami menawarkan 4 pakej yang ternyata berbaloi untuk poket anda!", label: "PAKEJ", bottleLabel: "BOTOL PADOX PRO", pricePrefix: "RM", buyLabel: "BELI SEKARANG →", bestSellerLabel: "PALING LARIS" },
+  faq: { kicker: "SOALAN-SOALAN LAZIM (F.A.Q)", title: "Ada soalan? Kami sedia membantu." },
+  footer: {
+    disclaimer: "PENAFIAN: KEBERKESANAN PRODUK BERGANTUNG KEPADA CARA PENGGUNAAN YANG BETUL.",
+    copyright: "All Right Reserved | PADOX PRO © 2026",
+  },
+} as const;
