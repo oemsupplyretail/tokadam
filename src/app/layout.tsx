@@ -16,10 +16,24 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: site.metadata.title,
   description: site.metadata.description,
   icons: { icon: theme.favicon },
+  openGraph: {
+    title: site.metadata.title,
+    description: site.metadata.description,
+    images: [{ url: "/images/og.png", width: 5000, height: 2625, alt: "PADOX PRO — 45 MINIT" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.metadata.title,
+    description: site.metadata.description,
+    images: ["/images/og.png"],
+  },
 };
 
 export default function RootLayout({
