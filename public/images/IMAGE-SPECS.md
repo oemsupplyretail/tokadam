@@ -16,7 +16,7 @@ Dokumen ini ialah rujukan sebelum menggantikan mana-mana gambar. Kekalkan **nama
 | --- | --- | --- | --- |
 | `hero-bottle.png` | 900 × 1748 px, PNG transparent | PNG transparent, menegak, disyorkan minimum 900 × 1700 px. Produk perlu berada di tengah kanvas dengan sedikit ruang kosong. | Hero desktop: tinggi 520 px. Mobile: tinggi 300 px. Jangan guna background penuh. |
 | `couple.png` | 864 × 1821 px, PNG transparent | PNG transparent, pasangan menegak, disyorkan sekitar 850 × 1800 px. Subjek perlu di tengah dan bahagian atas wajah jelas. | Dipaparkan dalam frame yang di-crop. Jika imej terlalu lebar/rendah atau subjek terlalu dekat ke bawah, kedudukan pasangan akan berubah. |
-| `virilux-product.png` | 1024 × 1536 px, PNG transparent | PNG transparent, produk menegak, disyorkan minimum 1000 × 1500 px. | Digunakan dalam section penerangan produk; `object-fit: contain`, jadi seluruh produk dikekalkan. |
+| `Padox-Pro.png` | 1024 × 1536 px, PNG transparent | PNG transparent, produk menegak, disyorkan minimum 1000 × 1500 px. | Digunakan dalam section penerangan produk; `object-fit: contain`, jadi seluruh produk dikekalkan. |
 | `package-01.png` | 1254 × 1254 px, PNG | Kanvas segi empat, 1:1, disyorkan 1200 × 1200 px atau lebih. PNG transparent digalakkan, tetapi putih juga berfungsi. | Kad pakej 1; produk ditengah menggunakan `object-fit: contain`. |
 | `package-02.png` | 1254 × 1254 px, PNG | Kanvas segi empat, 1:1, disyorkan 1200 × 1200 px atau lebih. | Kad pakej 2; produk ditengah menggunakan `object-fit: contain`. |
 | `package-03.png` | 1254 × 1254 px, PNG | Kanvas segi empat, 1:1, disyorkan 1200 × 1200 px atau lebih. | Kad pakej 3; pakej ini ditanda `PALING LARIS`. |

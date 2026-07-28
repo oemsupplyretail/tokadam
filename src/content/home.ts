@@ -18,7 +18,7 @@ export const homeContent = {
     title: "Kini Berada Di Depan Mata Anda",
     description: "Solusi khas yang diformulasikan oleh Tok Adam untuk suami yang ada masalah pancut awal di ranjang.",
     image: "/images/hero-bottle.png",
-    imageAlt: "Virilux product",
+    imageAlt: "Padox Pro product",
   },
   intro: {
     kicker: "ANDA MENGALAMI MASALAH",
@@ -37,8 +37,8 @@ export const homeContent = {
   worries: {
     title: "PERASAAN NAK CUBA ITU ADA, TAPI RISAU PRODUK TAK SESUAI DAN TIDAK SELESAIKAN MASALAH?",
     lead: "Nak pula bila nak membeli produk, selalu mengalami masalah seperti ini",
-    relief: "KINI ANDA TIDAK PERLU RISAU LAGI.. PRODUK PADOX PRO INI DAPAT MEMBANTU ANDA SELESAIKAN MASALAH DIATAS.",
-    productName: "PRODUK PADOX PRO",
+    relief: "KINI ANDA TIDAK PERLU RISAU LAGI.. PADOX PRO INI DAPAT MEMBANTU ANDA SELESAIKAN MASALAH DIATAS.",
+    productName: "PADOX PRO",
     reassurance: "Anda boleh gunakan dengan selamat & tanpa was-was lagi",
   },
   product: {
@@ -46,23 +46,23 @@ export const homeContent = {
     title: "Produk dengan formulasi khusus yang dicipta untuk membantu anda untuk bertahan sehingga",
     duration: "45 MINIT!",
     productKicker: "MEMPERKENALKAN PADOX PRO",
-    image: "/images/virilux-product.png",
+    image: "/images/Padox-Pro.png",
     imageAlt: "PADOX PRO",
     ingredientsTitle: "YANG MENGANDUNGI BAHAN-BAHAN SEMULAJADI YANG DIRUMUS KHAS",
   },
   benefits: { title: "KELEBIHAN PENGGUNAAN PADOX PRO INI ADALAH", accent: "PADOX PRO" },
   tutorial: {
     kicker: "TUTORIAL VIDEO CARA GUNA PADOX PRO",
-    title: "Ini adalah video tutorial cara penggunaan produk PADOX PRO ini dengan betul dari Tok Adam",
+    title: "Ini adalah video tutorial cara penggunaan PADOX PRO ini dengan betul dari Tok Adam",
     frameTitle: "Tutorial penggunaan PADOX PRO",
   },
   credentials: {
     kicker: "CREDENTIAL PADOX PRO",
     title: "Anda tidak perlu risau untuk menggunakan PADOX PRO ini.",
-    description: "Kami sah berdaftar dengan Kementerian Kesihatan Malaysia.",
+    description: "Kami produk generasi turun temurun yang terbukti berkesan.",
     seals: [
-      { symbol: "✓", label: "BERDAFTAR" },
-      { symbol: "✦", label: "BERKUALITI" },
+      { symbol: "✓", label: "TRADISIONAL" },
+      { symbol: "✦", label: "BERKESAN" },
     ],
   },
   testimonials: { kicker: "TESTIMONI PENGGUNA", title: "Apa yang pelanggan kami katakan", rating: "★★★★★" },
