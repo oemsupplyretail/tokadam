@@ -7,7 +7,6 @@ import { Ingredients } from "@/components/Ingredients";
 import { Intro } from "@/components/Intro";
 import { Packages } from "@/components/Packages";
 import { Problems } from "@/components/Problems";
-import { RotatingIcon } from "@/components/RotatingIcon";
 import { Testimonials } from "@/components/Testimonials";
 import { Tutorial } from "@/components/Tutorial";
 import { site } from "@/config/site";
@@ -22,7 +21,7 @@ import { testimonials } from "@/data/testimonials";
 
 export default function Home() {
   return <main style={themeVariables}>
-    <Hero content={homeContent.hero} logo={theme.logo} cta={homeContent.cta} />
+    <Hero content={homeContent.hero} logo={theme.logo} cta={homeContent.cta} rotatingIcon={homeContent.rotatingIcon} />
     <Intro content={homeContent.intro} />
     <Problems content={homeContent.problems} items={problems} worriesContent={homeContent.worries} worries={worries} cta={homeContent.cta} />
     <Ingredients content={homeContent.product} items={ingredients} cta={homeContent.cta} />
@@ -33,6 +32,5 @@ export default function Home() {
     <Packages content={homeContent.packages} items={packages} />
     <FAQ content={homeContent.faq} items={faqs} />
     <Footer content={homeContent.footer} whatsapp={site.whatsapp} />
-    <RotatingIcon content={homeContent.rotatingIcon} />
   </main>;
 }
