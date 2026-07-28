@@ -1,37 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PADOX PRO
 
-## Getting Started
+## Setup — macOS dan Windows
 
-First, run the development server:
+Pasang Node.js 20.9 atau lebih baharu. Buka Terminal (macOS) atau PowerShell (Windows) dalam folder project, kemudian jalankan:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Project ini tidak menggunakan command atau path khusus macOS/Windows; kedua-duanya menggunakan npm.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Supabase keep-alive
 
-## Learn More
+Di Vercel, tambah `CRON_SECRET` sebagai environment variable rawak yang panjang. Cron production akan ping database setiap 5 hari pada 03:00 UTC (11:00 pagi waktu Malaysia) melalui `/api/cron/keep-supabase-alive`.
 
-To learn more about Next.js, take a look at the following resources:
+## Environment variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Cipta `.env.local` di root project dan masukkan credential payment, Supabase, serta pixel yang diperlukan. `.env.local` tidak disimpan dalam Git, jadi ia perlu disediakan pada setiap komputer dan dalam Vercel sebelum deploy.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Production check
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# tokadam
+```bash
+npm run build
+```
