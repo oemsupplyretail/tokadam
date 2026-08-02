@@ -34,3 +34,21 @@ export interface CreatePaymentRequest {
   productPrice: number;
   total: number;
 }
+
+export interface AdminOrder {
+  id: string;
+  packageName: string;
+  productPrice: number;
+  shipping: number;
+  total: number;
+  customerName: string;
+  phone: string;
+  email: string | null;
+  address: string;
+  postcode: string;
+  city: string;
+  state: string;
+  createdAt: string;
+  paidAt: string | null;
+  paymentReference: string | null;
+}
