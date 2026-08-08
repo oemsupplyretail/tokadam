@@ -1,0 +1,2 @@
+import Link from "next/link";import { logoutAdmin } from "@/app/admin/actions";
+export function AdminTopbar({email,section}:{email:string;section:string}){return <header className="admin-topbar"><div><Link className="admin-brand admin-brand-light" href="/">PADOX <span>PRO</span></Link><p>{section}</p></div><div className="admin-account"><span>{email}</span><form action={logoutAdmin}><button type="submit">Log keluar</button></form></div></header>}

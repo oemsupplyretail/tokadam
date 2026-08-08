@@ -3,6 +3,8 @@ import { NextResponse, type NextRequest } from "next/server";
 
 export async function proxy(request: NextRequest) {
   let response = NextResponse.next({ request });
+  const referral = request.nextUrl.searchParams.get("ref")?.trim().toUpperCase();
+  if (referral && /^[A-Z0-9_-]{3,30}$/.test(referral)) response.cookies.set("padox-affiliate", referral, { path: "/", maxAge: 30 * 24 * 60 * 60, sameSite: "lax", httpOnly: true, secure: process.env.NODE_ENV === "production" });
   const url = process.env.SUPABASE_URL;
   const publishableKey = process.env.SUPABASE_PUBLISHABLE_KEY || process.env.SUPABASE_ANON_KEY;
 
@@ -10,8 +12,8 @@ export async function proxy(request: NextRequest) {
 
   const supabase = createServerClient(url, publishableKey, {
     cookieOptions: {
-      name: "padox-admin-auth",
-      path: "/admin",
+      name: request.nextUrl.pathname.startsWith("/affiliate") ? "padox-affiliate-auth" : "padox-admin-auth",
+      path: "/",
       sameSite: "lax",
       httpOnly: true,
       maxAge: 8 * 60 * 60,
@@ -34,5 +36,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: ["/((?!_next/static|_next/image|favicon.ico|api/payment/callback).*)"],
 };

@@ -17,15 +17,15 @@ export function isAdminAuthConfigured() {
   return getAuthEnvironment() !== null;
 }
 
-export async function createSupabaseAuthClient() {
+export async function createSupabaseAuthClient(scope: "admin" | "affiliate" = "admin") {
   const environment = getAuthEnvironment();
   if (!environment) throw new Error("Admin authentication is not configured.");
 
   const cookieStore = await cookies();
   return createServerClient(environment.url, environment.publishableKey, {
     cookieOptions: {
-      name: "padox-admin-auth",
-      path: "/admin",
+      name: `padox-${scope}-auth`,
+      path: "/",
       sameSite: "lax",
       httpOnly: true,
       maxAge: 8 * 60 * 60,
@@ -61,3 +61,19 @@ export async function requireAdminUser() {
   if (!user) redirect("/admin/login");
   return user;
 }
+
+export async function getAffiliateUser() {
+  const supabase = await createSupabaseAuthClient("affiliate");
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return null;
+  const { data: affiliate } = await createSupabaseAdminClient().from("affiliates").select("*").eq("auth_user_id", user.id).eq("active", true).maybeSingle();
+  return affiliate ? { user, affiliate } : null;
+}
+
+export async function requireAffiliateUser() {
+  const result = await getAffiliateUser();
+  if (!result) redirect("/affiliate/login");
+  return result;
+}
+
+import { createSupabaseAdminClient } from "@/lib/supabase/server";

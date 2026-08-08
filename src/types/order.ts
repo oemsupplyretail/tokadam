@@ -8,6 +8,14 @@ export interface Order {
   packageId: PackageId;
   packageName: string;
   productPrice: number;
+  subtotal: number;
+  voucherId?: string;
+  voucherCode?: string;
+  discountAmount: number;
+  affiliateId?: string;
+  affiliateCode?: string;
+  commissionRate: number;
+  commissionAmount: number;
   shipping: number;
   total: number;
   customerName: string;
@@ -23,6 +31,7 @@ export interface Order {
 
 export interface CreatePaymentRequest {
   packageId: string;
+  voucherCode?: string;
   customerName: string;
   phone: string;
   email?: string;
@@ -51,4 +60,8 @@ export interface AdminOrder {
   createdAt: string;
   paidAt: string | null;
   paymentReference: string | null;
+  voucherCode: string | null;
+  discountAmount: number;
+  affiliateCode: string | null;
+  commissionAmount: number;
 }

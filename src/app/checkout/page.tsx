@@ -2,6 +2,7 @@ import { getPackage } from "@/data/packages";
 import Link from "next/link";
 import { CheckoutForm } from "./CheckoutForm";
 import "./checkout.css";
+import "./voucher.css";
 
 type CheckoutPageProps = {
   searchParams: Promise<{ package?: string }>;

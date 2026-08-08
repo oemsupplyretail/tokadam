@@ -2,9 +2,10 @@ import Link from "next/link";
 import { getPaidOrders } from "@/lib/orders";
 import { requireAdminUser } from "@/lib/supabase/auth-server";
 import { logoutAdmin } from "../actions";
+import { AdminNav } from "@/components/AdminNav";
 
 type OrdersPageProps = {
-  searchParams: Promise<{ q?: string }>;
+  searchParams: Promise<{ q?: string; month?: string }>;
 };
 
 const dateFormatter = new Intl.DateTimeFormat("ms-MY", {
@@ -23,9 +24,9 @@ function matchesQuery(order: Awaited<ReturnType<typeof getPaidOrders>>[number], 
 
 export default async function AdminOrdersPage({ searchParams }: OrdersPageProps) {
   const user = await requireAdminUser();
-  const [orders, { q }] = await Promise.all([getPaidOrders(), searchParams]);
+  const [orders, { q, month }] = await Promise.all([getPaidOrders(), searchParams]);
   const query = q?.trim().toLowerCase() || "";
-  const visibleOrders = query ? orders.filter((order) => matchesQuery(order, query)) : orders;
+  const visibleOrders = orders.filter((order) => { const localMonth = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Kuala_Lumpur", year: "numeric", month: "2-digit" }).format(new Date(order.paidAt || order.createdAt)).slice(0,7); return (!query || matchesQuery(order, query)) && (!month || localMonth === month); });
 
   return (
     <main className="admin-dashboard-shell">
@@ -41,6 +42,7 @@ export default async function AdminOrdersPage({ searchParams }: OrdersPageProps)
       </header>
 
       <div className="admin-dashboard">
+        <AdminNav />
         <section className="admin-heading">
           <div>
             <p className="admin-kicker">ORDER TELAH DIBAYAR</p>
@@ -57,6 +59,7 @@ export default async function AdminOrdersPage({ searchParams }: OrdersPageProps)
           <label htmlFor="order-search">Cari order</label>
           <div>
             <input id="order-search" name="q" defaultValue={q || ""} placeholder="Nama, telefon, order ID atau negeri" />
+            <input name="month" type="month" defaultValue={month || ""} />
             <button type="submit">Cari</button>
             {query ? <Link href="/admin/orders">Reset</Link> : null}
           </div>

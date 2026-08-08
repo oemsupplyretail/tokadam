@@ -4,6 +4,8 @@ import { createPayment } from "@/lib/payments/toyyib";
 import { saveBillCode, saveOrder } from "@/lib/orders";
 import { enforcePaymentRateLimit } from "@/lib/payment-rate-limit";
 import type { CreatePaymentRequest, Order } from "@/types/order";
+import { cookies } from "next/headers";
+import { getAffiliate, validateVoucher } from "@/lib/commerce";
 
 const malaysianPhonePattern = /^(?:0?1\d{8,9}|601\d{8,9})$/;
 
@@ -44,13 +46,29 @@ export async function POST(request: Request) {
   const shipping = getShippingRate(payload.state);
   if (!selectedPackage || shipping === undefined) return Response.json({ error: "The selected package or state is invalid." }, { status: 400 });
 
+  let voucher;
+  try { voucher = await validateVoucher(payload.voucherCode, selectedPackage.id, selectedPackage.price, payload.phone); }
+  catch (error) { return Response.json({ error: error instanceof Error ? error.message : "Voucher tidak sah." }, { status: 400 }); }
+  const affiliate = await getAffiliate((await cookies()).get("padox-affiliate")?.value);
+  const discountAmount = voucher?.discountAmount || 0;
+  const discountedProductPrice = Math.max(0, selectedPackage.price - discountAmount);
+  const commissionRate = affiliate ? Number(affiliate.commission_rate) : 0;
+
   const order: Order = {
     id: crypto.randomUUID(),
     packageId: selectedPackage.id,
     packageName: `Package ${selectedPackage.quantity}`,
     productPrice: selectedPackage.price,
+    subtotal: selectedPackage.price,
+    voucherId: voucher?.id,
+    voucherCode: voucher?.code,
+    discountAmount,
+    affiliateId: affiliate?.id,
+    affiliateCode: affiliate?.code,
+    commissionRate,
+    commissionAmount: Math.round(discountedProductPrice * commissionRate) / 100,
     shipping,
-    total: selectedPackage.price + shipping,
+    total: discountedProductPrice + shipping,
     customerName: payload.customerName.trim(),
     phone: payload.phone.replace(/[\s-]/g, ""),
     email: payload.email?.trim() || undefined,
